@@ -23,12 +23,13 @@ namespace oop_lesson_4a_parking.models
 
         public int CalculateCharge(int hoursParked)
         {
-            int calculatedFee = 3;
-            while (hoursParked<=24 && calculatedFee<=10)
+            int calculatedFee = minimumFee;
+            hoursParked = hoursParked - 3;
+            calculatedFee = Convert.ToInt32(calculatedFee + 0.5 * hoursParked);
+            if (calculatedFee > 10)
             {
-
+                calculatedFee = 10;
             }
-            calculatedFee = hoursParked < minimumHours ? minimumFee : hoursParked * minimumFee;
             return calculatedFee;
         }
     }
